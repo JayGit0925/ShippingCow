@@ -43,6 +43,26 @@ export function AppShell({ org, children }: { org: Org | null; children: React.R
             style={pathname.startsWith('/silo') ? { backgroundColor: '#0052C9' } : {}}>
             Silo
           </Link>
+          <Link href="/feed"
+            className={`block rounded-md px-3 py-2 text-sm font-medium ${pathname.startsWith('/feed') ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
+            style={pathname.startsWith('/feed') ? { backgroundColor: '#0052C9' } : {}}>
+            Insight Feed
+          </Link>
+          <Link href="/map"
+            className={`block rounded-md px-3 py-2 text-sm font-medium ${pathname.startsWith('/map') ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
+            style={pathname.startsWith('/map') ? { backgroundColor: '#0052C9' } : {}}>
+            Zoning Map
+          </Link>
+          <Link href="/workspace"
+            className={`block rounded-md px-3 py-2 text-sm font-medium ${pathname.startsWith('/workspace') ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
+            style={pathname.startsWith('/workspace') ? { backgroundColor: '#0052C9' } : {}}>
+            Workspace
+          </Link>
+          <Link href="/mooovy"
+            className={`block rounded-md px-3 py-2 text-sm font-medium ${pathname.startsWith('/mooovy') ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
+            style={pathname.startsWith('/mooovy') ? { backgroundColor: '#0052C9' } : {}}>
+            Mooovy
+          </Link>
           <Link href="/org"
             className={`block rounded-md px-3 py-2 text-sm font-medium ${pathname.startsWith('/org') ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
             style={pathname.startsWith('/org') ? { backgroundColor: '#0052C9' } : {}}>
