@@ -9,7 +9,12 @@ export type AuditAction =
   | 'admin.config_change'
   | 'tier.change'
   | 'invite.create'
-  | 'invite.accept';
+  | 'invite.accept'
+  | 'shipments.ingest'
+  | 'silo_file.delete'
+  | 'reference_data.publish'
+  | 'reference_data.draft.create'
+  | 'reference_data.draft.delete';
 
 export interface AuditLogEntry {
   id: number;

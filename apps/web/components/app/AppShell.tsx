@@ -33,6 +33,16 @@ export function AppShell({ org, children }: { org: Org | null; children: React.R
             style={pathname === '/dashboard' ? { backgroundColor: '#0052C9' } : {}}>
             Dashboard
           </Link>
+          <Link href="/upload"
+            className={`block rounded-md px-3 py-2 text-sm font-medium ${pathname.startsWith('/upload') ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
+            style={pathname.startsWith('/upload') ? { backgroundColor: '#0052C9' } : {}}>
+            Upload
+          </Link>
+          <Link href="/silo"
+            className={`block rounded-md px-3 py-2 text-sm font-medium ${pathname.startsWith('/silo') ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
+            style={pathname.startsWith('/silo') ? { backgroundColor: '#0052C9' } : {}}>
+            Silo
+          </Link>
           <Link href="/org"
             className={`block rounded-md px-3 py-2 text-sm font-medium ${pathname.startsWith('/org') ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100'}`}
             style={pathname.startsWith('/org') ? { backgroundColor: '#0052C9' } : {}}>
