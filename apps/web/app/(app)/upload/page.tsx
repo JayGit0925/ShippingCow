@@ -29,7 +29,9 @@ export default function UploadPage() {
     const { raw_upload } = await upRes.json();
 
     setStage('parsing');
-    const parseRes = await fetch('/api/ingestion/parse', {
+    const isVision = file.type.startsWith('image/') || file.type === 'application/pdf';
+    const parseUrl = isVision ? '/api/ingestion/mooovy-parse' : '/api/ingestion/parse';
+    const parseRes = await fetch(parseUrl, {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ raw_upload_id: raw_upload.id }),
@@ -59,7 +61,7 @@ export default function UploadPage() {
           <label className="block text-sm font-medium mb-1">Choose file</label>
           <input
             type="file"
-            accept=".csv,.xlsx,.xls"
+            accept=".csv,.xlsx,.xls,.pdf,image/png,image/jpeg,image/webp"
             onChange={(e) => setFile(e.target.files?.[0] ?? null)}
             className="block w-full text-sm"
           />
@@ -80,9 +82,9 @@ export default function UploadPage() {
         </button>
       </form>
 
-      <div className="text-xs text-gray-500">
-        Required columns (we auto-detect): date, sku, origin_zip, destination_zip, carrier,
-        actual_weight_lb (or billable_weight_lb), packages_shipped. Length/width/height optional but recommended for dim-weight calculation.
+      <div className="text-xs text-gray-500 space-y-1">
+        <p><strong>CSV/XLSX:</strong> auto-detect columns (date, sku, origin_zip, dest_zip, carrier, weight, packages). Dimensions optional.</p>
+        <p><strong>PDF/image:</strong> Mooovy reads it and pulls every shipment. Counts against your monthly Mooovy turn quota.</p>
       </div>
     </div>
   );
